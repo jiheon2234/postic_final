@@ -1,0 +1,232 @@
+{% extends base.html %}
+{% block title %} 직종별 {% endblcok %}
+{% load static %}
+{% block content %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>직종별 통계정보</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Stat</li>
+                <li class="breadcrumb-item active">Occupation</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <p>ApexCharts Examples. You can check the <a href="https://apexcharts.com/javascript-chart-demos/"
+            target="_blank">official website</a> for more examples.</p>
+
+    <section class="section">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">직종별 채용건수</h5>
+
+                        <!-- Column Chart -->
+                        <div id="columnChart"></div>
+
+                        <script>
+                            var work_by_job_cnt = {{ work_by_job_cnt }}
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#columnChart"), {
+                                    series: [{
+                                        data: work_by_job_cnt
+                                    }],
+                                    chart: {
+                                        type: 'bar',
+                                        height: 370
+                                    },
+                                    plotOptions: {
+                                        bar: {
+                                            horizontal: false,
+                                            columnWidth: '55%',
+                                            endingShape: 'rounded'
+                                        },
+                                    },
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+                                    xaxis: {
+                                        categories: ['경영·사무·금융·보험',
+                                            '연구 및 공학기술',
+                                            '교육·법률·사회복지·경찰',
+                                            '보건·의료',
+                                            '예술·디자인·방송·스포츠',
+                                            '미용·여행·숙박·음식·청소',
+                                            '영업·판매·운전·운송',
+                                            '설치·정비·생산-건설·채굴',
+                                            '기계·금속·재료',
+                                            '전기·전자·정보통신',
+                                            '화학·섬유·의복·식품가공',
+                                            '인쇄·목재·공예 및 제조 단순',
+                                            '농림어업직'],
+                                    },
+                                    yaxis: {
+                                        title: {
+                                            text: 'count'
+                                        }
+                                    },
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Column Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">직종별 - 지역별 채용건수</h5>
+                        <p>`경영·사무·금융·보험` 직종의 지역별 채용건수</p>
+
+                        <!-- Pie Chart -->
+                        <div id="pieChart"></div>
+
+                        <script>
+                            var work_by_sido_cnt = {{ work_by_sido_cnt }}
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#pieChart"), {
+                                    series: work_by_sido_cnt,
+                                    chart: {
+                                        height: 350,
+                                        type: 'pie',
+                                        toolbar: {
+                                            show: true
+                                        }
+                                    },
+                                    labels: ['서울',
+                                        '부산',
+                                        '대구',
+                                        '인천',
+                                        '광주',
+                                        '대전',
+                                        '울산',
+                                        '세종',
+                                        '경기',
+                                        '강원',
+                                        '충북',
+                                        '충남',
+                                        '전북',
+                                        '전남',
+                                        '경북',
+                                        '경남',
+                                        '제주']
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Pie Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">임금현황 - 직종별 월급 평균</h5>
+
+                        <!-- Bar Chart -->
+                        <div id="barChart"></div>
+
+                        <script>
+                            var work_by_money_sum = {{ work_by_money_sum }}
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#barChart"), {
+                                    series: [{
+                                        data: work_by_money_sum
+                                    }],
+                                    chart: {
+                                        type: 'bar',
+                                        height: 350
+                                    },
+                                    plotOptions: {
+                                        bar: {
+                                            borderRadius: 4,
+                                            horizontal: true,
+                                        }
+                                    },
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+                                    xaxis: {
+                                        categories: ['경영·사무·금융·보험',
+                                            '연구 및 공학기술',
+                                            '교육·법률·사회복지·경찰',
+                                            '보건·의료',
+                                            '예술·디자인·방송·스포츠',
+                                            '미용·여행·숙박·음식·청소',
+                                            '영업·판매·운전·운송',
+                                            '설치·정비·생산-건설·채굴',
+                                            '기계·금속·재료',
+                                            '전기·전자·정보통신',
+                                            '화학·섬유·의복·식품가공',
+                                            '인쇄·목재·공예 및 제조 단순',
+                                            '농림어업직'],
+                                    }
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Bar Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!--지역별 임금 타입별로 나타내는 차트와 같음-->
+                        <h5 class="card-title">임금 현황 - 월급 기준</h5>
+
+                        <!-- Donut Chart -->
+                        <div id="donutChart"></div>
+
+                        <script>
+                            var work_by_ptype_cnt = {{ work_by_ptype_cnt }}
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#donutChart"), {
+                                    series: work_by_ptype_cnt,
+                                    chart: {
+                                        height: 350,
+                                        type: 'donut',
+                                        toolbar: {
+                                            show: true
+                                        }
+                                    },
+                                    labels: ['경영·사무·금융·보험',
+                                        '연구 및 공학기술',
+                                        '교육·법률·사회복지·경찰',
+                                        '보건·의료',
+                                        '예술·디자인·방송·스포츠',
+                                        '미용·여행·숙박·음식·청소',
+                                        '영업·판매·운전·운송',
+                                        '설치·정비·생산-건설·채굴',
+                                        '기계·금속·재료',
+                                        '전기·전자·정보통신',
+                                        '화학·섬유·의복·식품가공',
+                                        '인쇄·목재·공예 및 제조 단순',
+                                        '농림어업직'],
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Donut Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+{% endblock %}
+
+{% block script %}
+{% endblock %}

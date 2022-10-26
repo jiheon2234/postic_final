@@ -1,0 +1,83 @@
+{% load static %}
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center">
+            <img src="{% static 'assets/img/logo.png' %}" alt="">
+            <span class="d-none d-lg-block">ForSB</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="#">
+            <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+    </div><!-- End Search Bar -->
+
+
+</header><!-- End Header -->
+
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="index.html">
+                <i class="bi bi-grid"></i>
+                <span>Main Screan</span>
+            </a>
+        </li><!-- End Dashboard(Main Screan) Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link " data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-bar-chart"></i><span>통계정보</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="charts-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="#" class="active">
+                        <i class="bi bi-circle"></i><span>지역별 현황</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'showpage:showstat_occ' %}">
+                        <i class="bi bi-circle"></i><span>직종별 현황</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Charts(통계정보) Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i><span>채용정보</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="forms-elements.html">
+                        <!--Html 명 변경!!!-->
+                        <i class="bi bi-circle"></i><span>채용정보 키워드</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="forms-layouts.html">
+                        <!--Html 명 변경!!!-->
+                        <i class="bi bi-circle"></i><span>지역별 직종 키워드</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Forms(채용정보) Nav -->
+
+        <!--===== <li class="nav-heading">Pages</li> =====-->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'showpage:showmap' %}">
+                <!--Html 명 변경!!!-->
+                <i class="bi bi-person"></i>
+                <span>맞춤형 채용정보</span>
+            </a>
+        </li><!-- End Profile Page(맞춤형 채용정보) Nav -->
+
+    </ul>
+</aside><!-- End Sidebar-->

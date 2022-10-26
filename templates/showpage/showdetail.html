@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} {{ ann.pk }} {% endblock %}
+{% block content %}
+<div>
+    <br><br><br><br><br><br><br>
+    <h1>대충 디테일페이지임</h1>
+</div>
+<div>
+    {{ ann.title }}<br>
+    <a href=" {{ ann.url }}"">원본 주소</a>
+</div>
+{% endblock %}
