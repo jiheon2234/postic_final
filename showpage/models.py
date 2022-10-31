@@ -70,6 +70,9 @@ class Sido(models.Model):
     name = models.CharField(unique=True, max_length=45)
     momid = models.IntegerField(blank=True, null=True)
 
+    def __str__(self) -> str:
+        return self.name
+
     class Meta:
         managed = False
         db_table = "sido"

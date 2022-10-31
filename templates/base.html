@@ -25,6 +25,14 @@
 </head>
 
 <body>
+
+    <div id="loading_layer" style=" text-align: center; display: none;   
+         z-index: 1;  position:absolute ; height: 100%; width: 100%; background-color: rgba(0,0,0,0.5);">
+        <span style="font-size: 10em; margin-left: 500px; margin-top: 500px;
+        display: inline-block;
+    margin-top: 500px; ">
+            재언님이 로딩창 만들어줄거임</span>
+    </div>
     {% include 'header.html' %}
     {% block content %}
     {% endblock %}
