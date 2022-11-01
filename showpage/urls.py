@@ -5,7 +5,7 @@ app_name = "showpage"
 urlpatterns = [
     path("", showstat),
     path("showstat_occ", showstat_occ, name="showstat_occ"),
-    # path("showstat", showstat,name='showstat),
+    path("showstat", showstat, name="showstat"),
     path("regionjson", regionjson),
     path("showmap", showmap, name="showmap"),
     path("showmapjson", showmapjson),

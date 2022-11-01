@@ -41,12 +41,16 @@ function f(pos) {
 
 function ff() {
   n = document.getElementById("number").value;
-  // anndiv.innerHTML = "";
-  // loading_layer.style.display = "inline";
+  anntable.innerHTML = ` <thead><tr class="table-dark"> <th>DISTANCE</th><th>TITLE</th> <th>LINK</th></tr></thead>`;
+  if (n > 30000) {
+    alert("FU");
+    return;
+  }
   if (1 === 0) {
-    alert("위치를 모름");
+    alert("where are you?");
     return;
   } else {
+    loading_layer.style.display = "block";
     fetch(`/showmapjson?&n=${n}&cx=${x}&cy=${y}`)
       .then((res) => res.json())
       .then((res) => {
@@ -59,7 +63,7 @@ function ff() {
             const distance = ann.distance < 1000 ? ann.distance + "m" : (ann.distance / 1000).toFixed(2) + "km";
             const title = ann.title.length < 22 ? ann.title : ann.title.substr(0, 18) + "....";
             ann_dom.innerHTML = `<td>${distance}</td> <td>${title}</td>  <td><a href=/showdetail/${ann.ann_no}>바로가기</a></td>`;
-            const obj = { content: `div${ann.title}</div>`, lating: new kakao.maps.LatLng(ann.y, ann.x) };
+            const obj = { content: `<div>${ann.title}</div>`, lating: new kakao.maps.LatLng(ann.y, ann.x) };
             const marker = new kakao.maps.Marker({ position: obj.lating });
             const infowindow = new kakao.maps.InfoWindow({
               content: obj.content,
@@ -75,7 +79,7 @@ function ff() {
       })
       .catch((e) => console.log(e))
       .finally(() => {
-        // loading_layer.style.display = "none";
+        loading_layer.style.display = "none";
       });
   }
 }

@@ -32,17 +32,17 @@
         </li><!-- End Dashboard(Main Screan) Nav -->
 
         <li class="nav-item">
-            <a class="nav-link " data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed  " data-bs-target="#stat" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-bar-chart"></i><span>통계정보</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="charts-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+            <ul id="stat" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="#" class="active">
+                    <a id="/showstat" href="{% url 'showpage:showstat' %}" class="">
                         <i class="bi bi-circle"></i><span>지역별 현황</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'showpage:showstat_occ' %}">
+                    <a id="/showstat_occ" href="{% url 'showpage:showstat_occ' %}">
                         <i class="bi bi-circle"></i><span>직종별 현황</span>
                     </a>
                 </li>
@@ -50,18 +50,18 @@
         </li><!-- End Charts(통계정보) Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-target="#keyword" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-journal-text"></i><span>채용정보</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="keyword" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{% url 'showpage:showkeyword' %}">
+                    <a id="/showkeyword" class="" href="{% url 'showpage:showkeyword' %}">
                         <!--Html 명 변경!!!-->
                         <i class="bi bi-circle"></i><span>채용정보 키워드</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'showpage:showkeyword_occ' %}">
+                    <a id="/showkeyword_occ" href="{% url 'showpage:showkeyword_occ' %}">
                         <!--Html 명 변경!!!-->
                         <i class="bi bi-circle"></i><span>지역별 직종 키워드</span>
                     </a>
