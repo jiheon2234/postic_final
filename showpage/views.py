@@ -27,6 +27,7 @@ def showdetail(request, ann_no):
 
 ##########################지역별 통계정보
 def regionjson(request):
+
     region = int(request.GET.get("region", 11))
     if region < 1000:
         ann = Announce.objects.filter(sido_no__momid=region)
@@ -71,7 +72,6 @@ def regionjson(request):
 
 def showstat(request):
     ann = Announce.objects.all()
-
     worktype_list = [10339, 3679, 2385, 6617, 890, 11418, 6084, 1739, 6831, 2965, 2619, 5872, 344]
     paytype_list = [14875, 28892, 17502]  # 시급,월급,연봉
     pay_avg_list = [10647, 13071, 15060]  # 시급, 월급, 연봉을 시급으로
