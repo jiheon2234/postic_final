@@ -1,12 +1,39 @@
 {% extends 'base.html' %}
 {% block title %} {{ ann.pk }} {% endblock %}
 {% block content %}
-<div>
-    <br><br><br><br><br><br><br>
-    <h1>대충 디테일페이지임</h1>
-</div>
-<div>
-    {{ ann.title }}<br>
-    <a href=" {{ ann.url }}"">원본 주소</a>
+<div id="main" class="container">
+    <!-- 맞춤형 채용정보 디테일 페이지 -->
+    <div class="pagetitle">
+        <h1>채용 공고 세부정보</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Customized</li>
+                <li class="breadcrumb-item active">Jobs_Detail</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <!-- 디테일 페이지 보고 난 후, 다시 맞춤형 채용정보 페이지로 돌아가는 뒤로가기 기능(버튼으로 만듬) 만들면 좋을 것 같음-->
+    <div class="col-lg-12">
+        <div class="card">
+            <h5 class="card-title">&nbsp;&nbsp;&nbsp;채용공고명 - {{ ann.title }}</h5>
+            <h5 class="card-title">&nbsp;&nbsp;&nbsp;career - {{ ann.career }}</h5>
+            <h5 class="card-title">&nbsp;&nbsp;&nbsp;ann_company - {{ ann.company_set.name }}</h5>
+            <div class="card-body">
+                <!-- 채용공고 상세 내용 (채용공고명 불러오는 것 처럼 한 줄로 쓰면 될 것 같음)-->
+
+                <!--원본 주소-->
+                <button href="{{ ann.url }}" class="support_bt" style="vertical-align:middle"><a
+                        href="{{ ann.url }}">지원하러 가기</a></button>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div>
+        <h5>채용공고명 - {{ ann.title }}</h5><br>
+        <a href=" {{ ann.url }}">원본 주소</a>
+    </div>-->
 </div>
 {% endblock %}

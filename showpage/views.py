@@ -5,6 +5,15 @@ from django.http import JsonResponse
 from haversine import haversine
 from .getcommon import getcommon
 
+#############$####### 메인
+
+
+def showmain(request):
+    return render(request, "showpage/showmain.html", None)
+
+
+#############$####### 메인끝
+
 
 #######################상세페이지
 def showdetail(request, ann_no):

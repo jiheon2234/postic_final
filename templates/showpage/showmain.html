@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Job Search Trend Analysis Platform {% endblock %}
+{% load static %}
+{% block content %}
+
+<div id="main" class="container">
+    <div class="pagetitle">
+        <h1 style="font-size : 35px;">
+            구직 트랜드 분석 플랫폼
+            <p style="font-size : 15px;">Job Search Trend Analysis Platform</p>
+        </h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <!-- 최신 구직 트랜드 Top 5 -->
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    1.요양보호사 <br>
+                    2.생산 <br>
+                    3.센터 <br>
+                    4.현장 <br>
+                    5.사무 <br>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 워드클라우드 -->
+        <div class="col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{% static 'showmain/cloud.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% endblock %}

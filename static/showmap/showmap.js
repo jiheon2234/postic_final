@@ -62,7 +62,7 @@ function ff() {
             const ann_dom = document.createElement("tr");
             const distance = ann.distance < 1000 ? ann.distance + "m" : (ann.distance / 1000).toFixed(2) + "km";
             const title = ann.title.length < 22 ? ann.title : ann.title.substr(0, 18) + "....";
-            ann_dom.innerHTML = `<td>${distance}</td> <td>${title}</td>  <td><a href=/showdetail/${ann.ann_no}>바로가기</a></td>`;
+            ann_dom.innerHTML = `<td>${distance}</td> <td>${title}</td>  <td><a href="/showdetail/${ann.ann_no}" target="_blank">바로가기</a></td>`;
             const obj = { content: `<div>${ann.title}</div>`, lating: new kakao.maps.LatLng(ann.y, ann.x) };
             const marker = new kakao.maps.Marker({ position: obj.lating });
             const infowindow = new kakao.maps.InfoWindow({

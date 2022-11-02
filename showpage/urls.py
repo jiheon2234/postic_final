@@ -3,7 +3,7 @@ from .views import *
 
 app_name = "showpage"
 urlpatterns = [
-    path("", showstat),
+    path("", showmain, name="main"),
     path("showstat_occ", showstat_occ, name="showstat_occ"),
     path("showstat", showstat, name="showstat"),
     path("regionjson", regionjson),

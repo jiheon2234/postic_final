@@ -26,12 +26,16 @@
 
 <body>
 
+    <!-- 로딩창 -->
     <div id="loading_layer" style=" text-align: center; display: none;   
          z-index: 1;  position:absolute ; height: 100%; width: 100%; background-color: rgba(0,0,0,0.5);">
-        <span style="font-size: 10em; margin-left: 500px; margin-top: 500px;
-        display: inline-block;
-    margin-top: 500px; ">
-            재언님이 로딩창 만들어줄거임</span>
+
+        <section class="loading" style="box-sizing: border-box; margin: 0 auto;">
+            <h1 class="loading-title">Loading....</h1>
+            <div class="progress-bar" aria-hidden="true">
+                <span class="progress-bar-gauge"></span>
+            </div>
+
     </div>
     {% include 'header.html' %}
     {% block content %}

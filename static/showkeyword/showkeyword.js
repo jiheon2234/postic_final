@@ -85,8 +85,8 @@ occ_obj = {
 
 function make_div(rank, text, value) {
   const div = document.createElement("div");
-  div.innerHTML = `<span style="color:red; font-size:1.5em">${rank}</span>${text} :${value} `;
-  if (rank < 10) {
+  div.innerHTML = `<span style="color:red; font-size:1.5em">${rank + 1}</span>${text} :${value} `;
+  if (rank <= 10) {
     div.style.backgroundColor = "black";
     div.style.color = "white";
   }
