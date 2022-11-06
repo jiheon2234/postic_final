@@ -269,7 +269,7 @@ h6 {
 }
 
 .card-title {
-  padding: 20px 0 15px 0;
+  padding: 20px 0 15px 2px;
   font-size: 18px;
   font-weight: 500;
   color: #012970;
@@ -1278,41 +1278,134 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# jobs keyword - Search for keyword 
+# show map html css
 --------------------------------------------------------------*/
-.in-line {
-  width: 440px;
-  height: 40px;
+.coor_search {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  border: 2px solid #33313e;
+  width: 120px;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 2px;
+  float: right;
 }
-.sido_input {
-  margin: 0;
-  background-color: #f5f5f5;
-  width: 75%;
-  height: 100%;
-  border: none;
-  font-size: 1em;
-  padding-left: 5px;
-  font-style: oblique;
-  display: inline;
-  outline: none;
-  box-sizing: border-box;
+.coor_search:hover {
+  background-color: #33313e;
+  color: white;
+}
+
+.map_search {
+  background-color: white;
   color: black;
+  border: 2px solid #555555;
+  border-radius: 2px;
 }
-.sido_search {
-  width: 25%;
-  height: 100%;
-  background-color: #ffdaab;
-  border: none;
-  background-color: #b4b4ff;
-  font-size: 1em;
-  color: #f9ffff;
-  outline: none;
-  display: inline;
-  margin-left: -10px;
-  box-sizing: border-box;
+.map_search:hover {
+  background-color: #555555;
+  color: white;
 }
-.sido_search:hover {
-  background-color: #ffdaab;
+
+/*--------------------------------------------------------------
+# loading css
+--------------------------------------------------------------*/
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 320px;
+}
+.loading-title {
+  font-size: 40px;
+  font-weight: 450;
+  line-height: 1.3333333333;
+  color: #e9f0ff;
+  text-align: center;
+  animation-name: flicker;
+  animation-duration: 1600ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  margin-bottom: 25px;
+}
+.progress-bar {
+  width: 300px;
+  height: 15px;
+  background-color: #dae4ed;
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar-gauge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 15px;
+  border-radius: 100px;
+  background-color: #3927ff;
+  animation-name: loading-bar;
+  animation-duration: 1600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loading-bar {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  90% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# showstat html - non page
+--------------------------------------------------------------*/
+.non_page {
+  text-align: center;
+  font-size: 15px;
+  color: gray;
+  margin-top: 20%;
+}
+
+/*--------------------------------------------------------------
+# showmain html - img
+--------------------------------------------------------------*/
+.img-options {
+  float: right;
+  height: 550px;
+  width: 960px;
+  margin-bottom: 5px;
+}
+.photo {
+  float: right;
+  display: block;
+}
+.photo img {
+  object-fit: cover;
+  transition: all 0.5s;
+  margin-top: -10px;
+  display: block;
+}
+.photo:hover img,
+.photo:hover .glow-wrap {
+  margin-top: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1330,13 +1423,11 @@ h6 {
   cursor: pointer;
   float: right;
 }
-
 .support_bt a {
   cursor: pointer;
   position: relative;
   transition: 0.5s;
 }
-
 .support_bt a:after {
   content: "\00bb";
   position: absolute;
@@ -1345,12 +1436,30 @@ h6 {
   right: -15px;
   transition: 0.5s;
 }
-
 .support_bt:hover a {
   padding-right: 15px;
 }
-
 .support_bt:hover a:after {
   opacity: 1;
   right: 0;
+}
+
+/*--------------------------------------------------------------
+# show detail html 
+--------------------------------------------------------------*/
+.job-category {
+  font-size: 15px;
+  color: gray;
+  padding: 0 0 20px 30px;
+}
+.job-detail-tb table {
+  width: 70%;
+  font-size: 17px;
+}
+.job-detail-tb td {
+  padding: 0 0 20px 0;
+}
+.job-detail-tb li {
+  list-style: none;
+  padding: 0 0 0 15px;
 }
