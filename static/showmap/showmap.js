@@ -11,7 +11,6 @@ mapOption = {
   center: new kakao.maps.LatLng(36.321655, 127.378953), // 지도의 중심좌표
   level: 7, // 지도의 확대 레벨
 };
-// 지도를 생성합니다
 const map = new kakao.maps.Map(mapContainer, mapOption);
 
 findmyloc = () => {

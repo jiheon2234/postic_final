@@ -1,6 +1,6 @@
 const current_region = document.getElementById("current_region");
 const sub_btn = document.getElementById("sub_btn");
-const loading_layer = document.getElementById("loading_layer");
+const loading_layer = document.getElementById("loading_layer"); //로딩레이어
 const container = document.getElementById("container");
 
 region = 0;
