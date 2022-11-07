@@ -5,9 +5,9 @@
 
 <div id="main" class="container">
     <div class="pagetitle">
-        <h1 style="font-size : 35px;">
+        <h1 style="font-size : 40px; margin-top:20px;">
             구직 트랜드 분석 플랫폼
-            <p style="font-size : 15px;">Job Search Trend Analysis Platform</p>
+            <p style="font-size : 15px; margin-top:10px;">Job Search Trend Analysis Platform</p>
         </h1>
         <nav>
             <ol class="breadcrumb">
@@ -16,30 +16,57 @@
         </nav>
     </div><!-- End Page Title -->
 
-    <!-- 최신 구직 트랜드 Top 5 -->
-    <div class="row">
-        <div class="col-lg-2">
-            <div class="card">
-                <div class="card-body">
-                    1.요양보호사 <br>
-                    2.생산 <br>
-                    3.센터 <br>
-                    4.현장 <br>
-                    5.사무 <br>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;최근 인기있는 직종 Top 5</h5>
+                    <div class="card-body">
+                        <!-- 최신 구직 트랜드 Top 5 -->
+                        
+<table class="table table-hover">
+                            <tbody style="font-size:18px text-align:center;">
+                            <tr>
+                                <th scope="row"> <i class="bi bi-trophy" style= "color:#D5A11E; font-size:1.2em;"></i> 1위</th>
+                                <td>요양보호사</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> <i class="bi bi-trophy" style= "color:#A3A3A3; font-size:1em;"></i> 2위</th>
+                                <td>생산</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> <i class="bi bi-trophy" style= "color:#CD7F32; font-size:1em;"></i> 3위</th>
+                                <td>센터</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></i> 4위</th>
+                                <td>현장</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></i> 5위</th>
+                                <td>사무</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 워드클라우드 -->
-        <div class="col-lg-7">
-            <div class="card">
-                <div class="card-body">
-                    <img src="{% static 'showmain/cloud.png' %}">
+            <div class="col-lg-9">
+                <div class="card" style="background:none; box-shadow:none;">
+                    <!-- 워드클라우드 <img class = "img-options" src="{% static 'showmain/cloud-remove.png' %}">-->
+                    <p class="photo">
+                        <img class = "img-options" src="{% static 'showmain/cloud-remove.png' %}">
+                        <div class="glow-wrap">
+                            <i class="glow"></i>
+                        </div>
+                    </p>
                 </div>
             </div>
+
         </div>
-    </div>
+    </section>
 </div>
 {% endblock %}
 {% block script %}

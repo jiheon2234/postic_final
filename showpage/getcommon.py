@@ -16,7 +16,7 @@ def getcommon(data, n=10, debug=False):
     # 제외할 단어 추가
     stop_words = "모집 채용 구함 구합 구인 직원 공고"  # 추가할 때 띄어쓰기로 추가해주기
     stop_words = set(stop_words.split(" "))
-    n_adj = [word for word in n_adj if not word in stop_words]
+    n_adj = [word for word in n_adj if not word in stop_words and len(word) > 1]
     # 가장 많이 나온 단어 1000개 저장
     counts = Counter(n_adj)
     tags = counts.most_common(n)

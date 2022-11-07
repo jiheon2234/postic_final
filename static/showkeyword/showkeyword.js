@@ -85,10 +85,52 @@ occ_obj = {
 
 function make_div(rank, text, value) {
   const div = document.createElement("div");
-  div.innerHTML = `<span style="color:red; font-size:1.5em">${rank + 1}</span>${text} :${value} `;
-  if (rank <= 10) {
-    div.style.backgroundColor = "black";
-    div.style.color = "white";
-  }
+
+  div.innerHTML = `
+  <style>
+    table.kw_table {
+        border-collapse: collapse;
+        text-align: center;
+        line-height: 1.2;
+        border-top: 1px solid #ccc;
+        border-left: 7px solid #8888ff;
+        margin : 5px 10px;
+      }
+      table.kw_table th {
+        width: 70px;
+        padding: 10px;
+        font-weight: bold;
+        font-size:17px;
+        vertical-align: top;
+        color: #8888ff;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+      table.kw_table td {
+        text-align: left;
+        width: 280px;
+        padding: 10px;
+        vertical-align: top;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+  </style>
+  <table class="kw_table">
+    <tr>
+      <th scope="row">${rank + 1} 위</th>
+      <td>${text} :${value} </td>
+    </tr>
+  </table>
+  `;
+
+  //if (rank % 2 == 0) {
+  //  div.style.border-left = "7px solid #f9bf74";
+  //  div.style.color= "#f9bf74";
+  //}
+  
+  //if (rank >= 10) {
+  //  div.style.backgroundColor = "Gainsboro";
+  //  div.style.color = "#f9bf74";
+  //}
   return div;
 }

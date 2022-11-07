@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# jobs keyword - Search for keyword 
+# showkeyword - Search for keyword 
 --------------------------------------------------------------*/
 .in-line {
   width: 440px;
@@ -34,4 +34,73 @@
 }
 .sido_search:hover {
   background-color: #ffdaab;
+}
+
+/*--------------------------------------------------------------
+# showkeyword_occ - Occupation selection button 
+--------------------------------------------------------------*/
+.ch_occ + label{
+  position: relative;
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+.checkboxs input[type="checkbox"].ch_occ{
+  display: none;
+}
+.checkboxs input[type="checkbox"].ch_occ + label:before { /* 체크박스 배경 */
+  display: inline-block;
+  content: '';
+  width: 1.25em; 
+  height: 1.25em;
+  border: 3px solid #b4b4ff;
+  background-color: #f9ffff;
+  border-radius: 20%;
+  margin: 0 5px -4px 0;
+}
+.checkboxs input[type="checkbox"].ch_occ + label:after { /* 체크 마크 */
+  position: absolute;
+  left: 3px;
+  content: '✔';
+  font-size: 1.5em;
+  line-height: 0.5;
+  color: rgb(26, 7, 87);
+  transition: all .3s;
+}
+[type="checkbox"].ch_occ + label:after { /* 기본 상태 - 투명에 크기 0 */
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked.ch_occ + label:after { /* 체크 상태 - 불투명에 크기 1 */
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*--------------------------------------------------------------
+# showkeyword_occ html - draw wordcloud
+--------------------------------------------------------------*/
+.draw_bt {
+  border-radius: 4px;
+  background-color: #dadaff;
+  border: 1px solid #eaeaea;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  width: 130px;
+  transition: all 0.5s;
+  float: right;
+}
+
+.draw_bt:hover {
+  background-color: #b4b4ff;
+  color: #f5f5f5;
+}
+
+/*--------------------------------------------------------------
+# showstat html - non page
+--------------------------------------------------------------*/
+.non_page{
+  text-align: center;
+  font-size: 15px;
+  color: gray;
+  margin-top: 20%;
 }

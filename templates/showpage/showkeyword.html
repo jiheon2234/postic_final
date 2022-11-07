@@ -2,8 +2,7 @@
 {% load static %}
 {% block title %} 채용정보 키워드 {% endblock %}
 {% block content %}
-
-
+<link rel=" stylesheet" href="{% static 'showkeyword/style.css' %}">
 
 <main id="main" class="main">
     <div class="pagetitle">
@@ -17,15 +16,13 @@
         </nav>
     </div><!-- End Page Title -->
 
-
-
     <section class="section">
         <div class="row">
 
             <!-- 지역별 채용정보 키워드 -->
             <div class="col-lg-6">
                 <div class="card">
-                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역별 채용정보 키워드</h5>
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역별 채용정보 키워드 검색</h5>
                     <div class="card-body">
                         <!-- 지역을 검색하는 input & 찾기 버튼 -->
                         <div id='sido_search' class="in-line">
@@ -34,10 +31,6 @@
                             <button id="sido_btn" class="sido_search" type="button" name="name"
                                 value="Search">Search</button>
                         </div>
-
-                        <!-- 워드클라우드 -->
-                        <!-- 워드클라우드에서 빈도수가 가장 높은 10개만 추출해서 Top10으로 만들기
-                  (Top10이 화면에 보여질 때, 너무 길면 5개나 7개로 줄여도 됨) -->
                     </div>
                 </div>
             </div>
@@ -45,7 +38,7 @@
             <!-- 직종별 채용정보 키워드 -->
             <div class="col-lg-6">
                 <div class="card">
-                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;직종별 채용정보 키워드</h5>
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;직종별 채용정보 키워드 검색</h5>
                     <div class="card-body">
                         <!-- 직종을 검색하는 input & 찾기 버튼-->
                         <div class="in-line">
@@ -53,9 +46,6 @@
                                 placeholder="직종을 입력하세요">
                             <input id="occ_btn" class="sido_search" type="button" name="name" value="Search">
                         </div>
-                        <!-- 워드클라우드 -->
-                        <!-- 워드클라우드에서 빈도수가 가장 높은 10개만 추출해서 Top10으로 만들기
-                  (Top10이 화면에 보여질 때, 너무 길면 5개나 7개로 줄여도 됨) -->
                     </div>
                 </div>
             </div>
@@ -63,11 +53,17 @@
             <!-- 워드클라우드(직종) -->
             <div class="col-lg-8">
                 <div class="card">
-                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역별 채용정보 키워드</h5>
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;채용정보 키워드 </h5>
                     <div class="card-body">
                         <!-- 워드클라우드 그리드-->
                         <div class="chart-area">
-                            <div id="container" style=" height:1000px;"></div>
+                            <div id="container" style=" height:850px;">
+                                <!-- 빈 페이지 -->
+                                <p class = "non_page">
+                                    <i class="ri-checkbox-multiple-line" style= "font-size:30px;"></i><br>
+                                    ! Search For Keywords !
+                                </p>
+                            </div>
                         </div>
 
                         <!-- 워드클라우드 그리드 끗 -->
@@ -77,11 +73,17 @@
 
             <div class="col-lg-4">
                 <div class="card">
-                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역별 채용정보 키워드</h5>
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;채용정보 키워드 랭킹</h5>
                     <div class="card-body">
                         <!-- 랭킹-->
                         <div class="chart-area">
-                            <div id="ranking" style=" height:1000px;"></div>
+                            <div id="ranking" style=" height:1000px;">
+                                <!-- 빈 페이지 -->
+                                <p class = "non_page">
+                                    <i class="ri-checkbox-multiple-line" style= "font-size:30px;"></i><br>
+                                    ! Search For Keywords !
+                                </p>
+                            </div>
                         </div>
 
                         <!-- 워드클라우드 그리드 끗 -->

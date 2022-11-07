@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% block title %} {{ ann.pk }} {% endblock %}
 {% block content %}
 <div id="main" class="container">
@@ -14,26 +15,69 @@
         </nav>
     </div><!-- End Page Title -->
 
-    <!-- 디테일 페이지 보고 난 후, 다시 맞춤형 채용정보 페이지로 돌아가는 뒤로가기 기능(버튼으로 만듬) 만들면 좋을 것 같음-->
-    <div class="col-lg-12">
-        <div class="card">
-            <h5 class="card-title">&nbsp;&nbsp;&nbsp;채용공고명 - {{ ann.title }}</h5>
-            <h5 class="card-title">&nbsp;&nbsp;&nbsp;career - {{ ann.career }}</h5>
-            <h5 class="card-title">&nbsp;&nbsp;&nbsp;ann_company - {{ ann.company_set.name }}</h5>
-            <div class="card-body">
-                <!-- 채용공고 상세 내용 (채용공고명 불러오는 것 처럼 한 줄로 쓰면 될 것 같음)-->
+    <section class="section">
+        <div class="row">
 
-                <!--원본 주소-->
-                <button href="{{ ann.url }}" class="support_bt" style="vertical-align:middle"><a
-                        href="{{ ann.url }}">지원하러 가기</a></button>
+            <div class="col-lg-12">
+                <div class="card">
+                    <h5 class="card-title" style="font-size:1.75em; padding:20px 0 0 0;">&nbsp;&nbsp;&nbsp;▪
+                        {{ ann.title }}</h5>
+                    <span class="job-category">CATEGORY - {{ann.worktype_no.name}}</span>
+                    <div class="card-body">
+                        <!-- 채용공고 상세 내용-->
+                        <div class="job-detail-tb">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <li style="font-size:20px;"><i class="bx bx-edit"
+                                                style="font-size:25px;"></i>지원자격</li>
+                                        <li>경력 | {{ ann.career }}</li>
+                                        <li>학력 | {{ ann.education }}</li>
+                                    </td>
+                                    <td rowspan="3">
+                                        <li style="font-size:20px;"><i class="bx bxs-city"
+                                                style="font-size:25px;"></i>기업정보</li>
+                                        <li>기업명 | {{ann.company_no.name}}</li>
+                                        <li>업종 | {{ann.company_no.sector}}</li>
+                                        <li>기업규모 | {{ann.company_no.size}}</li>
+                                        <li>설립년도 | {{ann.company_no.established}}</li>
+                                        <li>연매출액 | {{ann.company_no.annual_sales}}</li>
+                                        <li>홈페이지 | {{ann.company_no.hompage}}</li>
+                                        <li>근로자수 | {{ann.company_no.workercnt}}명</li>
+                                        <br><br><br>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <li style="font-size:20px;"><i class="bx bx-user-plus"
+                                                style="font-size:25px;"></i></i>고용형태</li>
+                                        <li>고용형태 | {{ ann.emp_p }}</li>
+                                        <li>근무형태 | {{ ann.emp_t }}</li>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <li style="font-size:20px;"><i class="ri-money-dollar-circle-line"
+                                                style="font-size:25px;"></i>근무조건</li>
+                                        <li>근무지역 | {{ann.sido_no.name}} {{ann.detail_add}}</li>
+                                        <li>임금 | {{ann.paytype_no.type}} {{ann.paymoney|intcomma}}원</li>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+
+                        <!--원본 주소-->
+                        <button href="{{ ann.url }}" class="support_bt" style="vertical-align:middle"><a
+                                href="{{ ann.url }}">지원하러 가기</a></button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!--
-    <div>
-        <h5>채용공고명 - {{ ann.title }}</h5><br>
-        <a href=" {{ ann.url }}">원본 주소</a>
-    </div>-->
+        </div>
+    </section>
 </div>
 {% endblock %}

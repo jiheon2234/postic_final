@@ -46,7 +46,7 @@ function ff() {
     alert("FU");
     return;
   }
-  if (1 === 0) {
+  if (x === 0) {
     alert("where are you?");
     return;
   } else {

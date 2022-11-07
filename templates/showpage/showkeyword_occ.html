@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %} 지역별 직종 키워드 {% endblock %}
 {% block content %}
+<link rel=" stylesheet" href="{% static 'showkeyword/style.css' %}">
 <link rel=" stylesheet" href="{% static  'assets/vendor/korea_map_js_file/style.css' %}">
 
 
@@ -17,14 +18,14 @@
         </nav>
     </div><!-- End Page Title -->
 
-    <div id="current_region" style="display: none;"></div>
+    <!--<div id="current_region" style="display: none;"></div>-->
 
     <section class="section">
         <div class="row">
             <!-- 지역 선택 버튼-->
             <div class="col-lg-3">
                 <div class="card" style=" height:600px;">
-                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역 선택</h5><br>
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역 선택 <span id='current_region'></span></h5> <br>
                     <div class="card-body">
                         <div id="canvas">
                             <div id="south"></div>
@@ -89,27 +90,53 @@
                 <div class="card" style=" height:600px;">
                     <h5 class="card-title">&nbsp;&nbsp;&nbsp;직종 선택</h5>
                     <div class="card-body">
-                        <div id="check_occ">
-                            <input type='radio' name="occ" value="1">경영,사무,금융,보험<br>
-                            <input type='radio' name="occ" value="2">연구 및 공학기술<br>
-                            <input type='radio' name="occ" value='3'> 교육·법률·사회복지·경찰·소방 및 군인<br>
-                            <input type='radio' name="occ" value='4'> 보건·의료<br>
-                            <input type='radio' name="occ" value='5'> 예술·디자인·방송·스포츠<br>
-                            <input type='radio' name="occ" value='6'> 미용·여행·숙박·음식·경비·돌봄·청소 <br>
-                            <input type='radio' name="occ" value='7'> 영업·판매·운전·운송 <br>
-                            <input type='radio' name="occ" value='8'> 건설·채굴 <br>
-                            <input type='radio' name="occ" value='13'> 농림어업직 <br>
+                        <div id="check_occ" class="checkboxs">
+                            <input type='checkbox' name="occ" value="1" id="check1" class="ch_occ">
+                            <label for="check1">경영,사무,금융,보험</label><br>
+
+                            <input type='checkbox' name="occ" value="2" id="check2" class="ch_occ">
+                            <label for="check2">연구 및 공학기술</label><br>
+
+                            <input type='checkbox' name="occ" value="3" id="check3" class="ch_occ">
+                            <label for="check3">교육·법률·사회복지·경찰</label><br>
+
+                            <input type='checkbox' name="occ" value="4" id="check4" class="ch_occ">
+                            <label for="check4">보건·의료</label><br>
+
+                            <input type='checkbox' name="occ" value="5" id="check5" class="ch_occ">
+                            <label for="check5">예술·디자인·방송·스포츠</label><br>
+
+                            <input type='checkbox' name="occ" value="6" id="check6" class="ch_occ">
+                            <label for="check6">미용·여행·숙박·음식·청소</label><br>
+
+                            <input type='checkbox' name="occ" value="7" id="check7" class="ch_occ">
+                            <label for="check7">영업·판매·운전·운송</label><br>
+
+                            <input type='checkbox' name="occ" value="8" id="check8" class="ch_occ">
+                            <label for="check8">건설·채굴</label><br>
+
+                            <input type='checkbox' name="occ" value="13" id="check13" class="ch_occ">
+                            <label for="check13">농림어업직</label><br>
+
                             <hr>
-                            <span> 설치·정비·생산</span> <br>
-                            <input type='radio' name="occ" value='9'> 기계·금속·재료 <br>
-                            <input type='radio' name="occ" value='10'> 전기·전자·정보통신 <br>
-                            <input type='radio' name="occ" value='11'> 화학·환경·섬유·의복·식품가공 <br>
-                            <input type='radio' name="occ" value='12'> 인쇄·목재·공예 및 제조 단순 <br><br>
-                        </div>
+                            <span style="font-size: 16px; font-weight:500;"> 설치·정비·생산</span> <br>
+
+                            <input type='checkbox' name="occ" value="9" id="check9" class="ch_occ">
+                            <label for="check9">기계·금속·재료</label><br>
+
+                            <input type='checkbox' name="occ" value="10" id="check10" class="ch_occ">
+                            <label for="check10">전기·전자·정보통신</label><br>
+
+                            <input type='checkbox' name="occ" value="11" id="check11" class="ch_occ">
+                            <label for="check11">화학·환경·섬유·의복·식품가공</label><br>
+
+                            <input type='checkbox' name="occ" value="12" id="check12" class="ch_occ">
+                            <label for="check12">인쇄·목재·공예 및 제조 단순</label><br>
+                        </div><br>
 
                         <!-- 워드클라우드 그리기 버튼-->
-                        <button type="button" id="sub_btn" class=" btn btn-primary" style="float:right;">
-                            키워드 보기</button>
+                        <button type="button" id="sub_btn" class="draw_bt" style="vertical-align:middle">
+                            <i class="ri-brush-line" style="font-size:20px; font-weight:500; "></i>키워드 보기</button>
                     </div>
                 </div>
             </div>
@@ -120,8 +147,14 @@
                     <h5 class="card-title">&nbsp;&nbsp;&nbsp;채용정보 키워드</h5>
                     <div class="card-body">
                         <!-- 워드클라우드 그리기-->
-                        <div class="cloud">
-                            <div id="container" style=" height:600px;"></div>
+                        <div class="chart-area">
+                            <div id="container" style=" height:850px;">
+                                <!-- 빈 페이지 -->
+                                <p class="non_page">
+                                    <i class="ri-checkbox-multiple-line" style="font-size:30px;"></i><br>
+                                    ! Search For Keywords !
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,4 +174,6 @@
 <script src="{% static 'showkeyword/showkeyword_occ.js' %}"></script>
 <script type="text/javascript" src="{% static 'assets/vendor/korea_map_js_file/raphael_path_s.korea.js' %}"></script>
 <script type="text/javascript" src="{% static 'assets/vendor/korea_map_js_file/raphael_min.js' %}"></script>
+<script src="{% static 'showkeyword/anychart-core.min.js' %}"></script>
+<script src="{% static 'showkeyword/anychart-tag-cloud.min.js' %}"></script>
 {% endblock %}

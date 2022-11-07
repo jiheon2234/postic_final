@@ -4,6 +4,7 @@ from collections import defaultdict
 from django.http import JsonResponse
 from haversine import haversine
 from .getcommon import getcommon
+import pandas as pd
 
 #############$####### 메인
 
@@ -87,8 +88,49 @@ def showstat(request):
 
 
 #########################직종별 통계정보
+
+
 def showstat_occ(request):
-    return render(request, "showpage/showstat.html", None)
+    # 데이터 프레임으로 바꾸기
+    ann_df = pd.DataFrame.from_dict(
+        Announce.objects.values(
+            "ann_no", "company_no", "worktype_no", "paytype_no", "paymoney", "sido_no"
+        )
+    )
+    com_df = pd.DataFrame.from_dict(Company.objects.values("com_no", "name", "sector"))
+    pay_df = pd.DataFrame.from_dict(Paytype.objects.values("ptype_no", "type"))
+    sido_df = pd.DataFrame.from_dict(Sido.objects.values("sido_no", "name", "momid"))
+    work_df = pd.DataFrame.from_dict(Worktype.objects.values("wtype_no", "name"))
+
+    # 모든 데이터 합치기
+    df1 = pd.merge(ann_df, com_df, left_on="company_no", right_on="com_no")
+    df1.rename(columns={"name": "company_name"}, inplace=True)
+    df2 = pd.merge(df1, pay_df, left_on="paytype_no", right_on="ptype_no")
+    df3 = pd.merge(df2, sido_df, how="left", on="sido_no")
+    df3.rename(columns={"name": "sido_name"}, inplace=True)
+    all_df = pd.merge(df3, work_df, left_on="worktype_no", right_on="wtype_no")
+    all_df.rename(columns={"name": "work_name"}, inplace=True)
+    # ------------------#
+    # 직종별 채용건수
+    work_by_job = all_df.groupby(["worktype_no"])["worktype_no"].count()
+    work_by_job_txt = list(work_by_job)
+    work_name = work_df["name"]  # work
+
+    # 직종별 평균 월급 금액
+    ptype_3 = all_df[all_df["paytype_no"] == 3]
+    work_by_money = ptype_3.groupby(["worktype_no"])["paymoney"].mean()
+    work_by_money_txt = list(round(work_by_money, 2))
+
+    # 임금 현황
+    paytype_list = [14875, 28892, 17502]  # 시급,월급,연봉
+
+    # html로 값을 보내는 부분
+    context = {
+        "work_by_job_cnt": work_by_job_txt,
+        "work_by_money_sum": work_by_money_txt,
+        "paytype_list": paytype_list,
+    }
+    return render(request, "showpage/showstat_occ.html", context)
 
 
 #########################직종별 통계정보 끝

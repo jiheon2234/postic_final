@@ -1280,7 +1280,7 @@ h6 {
 /*--------------------------------------------------------------
 # show map html css
 --------------------------------------------------------------*/
-.coor_search {
+.coor_search{
   background-color: white;
   color: rgb(0, 0, 0);
   border: 2px solid #33313e;
@@ -1290,18 +1290,18 @@ h6 {
   border-radius: 2px;
   float: right;
 }
-.coor_search:hover {
+.coor_search:hover{
   background-color: #33313e;
   color: white;
 }
 
-.map_search {
+.map_search{
   background-color: white;
   color: black;
   border: 2px solid #555555;
   border-radius: 2px;
 }
-.map_search:hover {
+.map_search:hover{
   background-color: #555555;
   color: white;
 }
@@ -1309,7 +1309,7 @@ h6 {
 /*--------------------------------------------------------------
 # loading css
 --------------------------------------------------------------*/
-.loading {
+.loading{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1329,7 +1329,7 @@ h6 {
   animation-direction: alternate;
   margin-bottom: 25px;
 }
-.progress-bar {
+.progress-bar{
   width: 300px;
   height: 15px;
   background-color: #dae4ed;
@@ -1337,7 +1337,7 @@ h6 {
   position: relative;
   overflow: hidden;
 }
-.progress-bar-gauge {
+.progress-bar-gauge{
   position: absolute;
   top: 0;
   left: 0;
@@ -1350,16 +1350,16 @@ h6 {
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
-@keyframes flicker {
-  from {
+@keyframes flicker{
+  from{
     opacity: 1;
   }
-  to {
+  to{
     opacity: 0;
   }
 }
 
-@keyframes loading-bar {
+@keyframes loading-bar{
   0% {
     width: 0;
     opacity: 0;
@@ -1377,7 +1377,7 @@ h6 {
 /*--------------------------------------------------------------
 # showstat html - non page
 --------------------------------------------------------------*/
-.non_page {
+.non_page{
   text-align: center;
   font-size: 15px;
   color: gray;
@@ -1388,23 +1388,23 @@ h6 {
 # showmain html - img
 --------------------------------------------------------------*/
 .img-options {
-  float: right;
-  height: 550px;
+  float:right;
+  height:550px ;
   width: 960px;
   margin-bottom: 5px;
 }
-.photo {
-  float: right;
+.photo{
+  float:right;
   display: block;
 }
-.photo img {
+.photo img{
   object-fit: cover;
-  transition: all 0.5s;
+  transition: all .5s;
   margin-top: -10px;
   display: block;
 }
 .photo:hover img,
-.photo:hover .glow-wrap {
+.photo:hover .glow-wrap{
   margin-top: 0;
 }
 
@@ -1447,19 +1447,19 @@ h6 {
 /*--------------------------------------------------------------
 # show detail html 
 --------------------------------------------------------------*/
-.job-category {
-  font-size: 15px;
-  color: gray;
-  padding: 0 0 20px 30px;
+.job-category{
+  font-size:15px;
+  color:gray;
+  padding:0 0 20px 30px;
 }
-.job-detail-tb table {
+.job-detail-tb table{
   width: 70%;
   font-size: 17px;
 }
-.job-detail-tb td {
-  padding: 0 0 20px 0;
+.job-detail-tb td{
+  padding:0 0 20px 0;
 }
-.job-detail-tb li {
+.job-detail-tb li{
   list-style: none;
   padding: 0 0 0 15px;
 }

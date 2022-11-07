@@ -17,9 +17,7 @@
     </div><!-- End Page Title -->
 
     <!-- 페이지 간단하게 설명해줄 말 적을거임 -->
-    <p id='current_region'>전체 데이터임</p>
-
-
+    <!--<p id='current_region'>전체 데이터임</p>-->
 
     <section class="section">
         <div class="row">
@@ -31,7 +29,7 @@
             </script>
             <div class="col-lg-4">
                 <div class="card">
-                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역 선택</h5>
+                    <h5 class="card-title">&nbsp;&nbsp;&nbsp;지역 선택 <span id='current_region'></span></h5>
                     <div class="card-body">
                         <div id="canvas">
                             <div id="south"></div>
@@ -93,21 +91,31 @@
 
             <!-- 시군구별 지역선택 - 버튼 -->
             <div class="col-lg-4">
-                <div class="card">
+                <div class="card" style="height:485px">
                     <h5 class="card-title">&nbsp;&nbsp;&nbsp;시군구 선택</h5>
-                    <div class="card-body" id="detail_sido">
-                        <!-- 내용 작성 -->
+                    <div class="card-body" id="detail_sido" style="overflow:scroll; height:480px;">
 
+                        <!-- 빈 페이지 -->
+                        <p class="non_page">
+                            <i class="ri-checkbox-multiple-line" style="font-size:30px;"></i><br>
+                            ! Please Select A Region !
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!-- 시도 또는 시군구를 선택했을 때, 총 채용건수 나타내기 -->
             <div class="col-lg-4">
-                <div class="card">
+                <div class="card" style="height:485px">
                     <h5 class="card-title">&nbsp;&nbsp;&nbsp;총 채용건수</h5>
                     <div class="card-body" id="all_cnt">
-                        <!-- 내용 작성 -->
+                        <!-- 빈 페이지 -->
+                        <p class="non_page">
+                            <i class="ri-checkbox-multiple-line" style="font-size:30px;"></i><br>
+                            ! Please Select A Region !
+                        </p>
+
+
                     </div>
                 </div>
             </div>
@@ -115,7 +123,7 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">지역별 직종 채용건수</h5>
+                        <h5 class="card-title">직종별 채용건수</h5>
 
                         <!-- Column Chart - 지역별 직종 현황(건수-count)  -->
                         <div id="columnChart"></div>
@@ -174,7 +182,7 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">직종 현황</h5>
+                        <h5 class="card-title">직종별 채용 비율</h5>
 
                         <!-- Pie Chart - 지역별 직종 현황(비율)-->
                         <div id="pieChart"></div>
@@ -193,8 +201,8 @@
                                         }
                                     },
 
-                                    // labels: ['경영·사무·금융·보험', '연구 및 공학기술', '교육·법률·사회복지', '보건·의료', '예술·디자인·방송·스포츠', '미용·여행·숙박·음식·경비', '영업·판매·운전·운송', '건설·채굴', '설치·정비·생산-기계', '설치·정비·생산-전기', '설치·정비·생산-화학', '설치·정비·생산-인쇄·목재', '농림어업직']
-                                    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                                    labels: ['경영·사무·금융·보험', '연구 및 공학기술', '교육·법률·사회복지', '보건·의료', '예술·디자인·방송·스포츠', '미용·여행·숙박·음식·경비', '영업·판매·운전·운송', '건설·채굴', '설치·정비·생산-기계', '설치·정비·생산-전기', '설치·정비·생산-화학', '설치·정비·생산-인쇄·목재', '농림어업직']
+                                    //labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                                 })
                                 chart3.render();
                             });
@@ -257,7 +265,6 @@
 
                             document.addEventListener("DOMContentLoaded", () => {
                                 chart2 = new ApexCharts(document.querySelector("#donutChart"), {
-                                    // series: [3, 19, 45, 49],
                                     series: paytype_list,
                                     chart: {
                                         height: 350,
@@ -276,43 +283,8 @@
                 </div>
             </div>
 
-            <!-- 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">워드클라우드</h5>
-
-                        <div id="wordcloud"></div>
-                    </div>
-                </div>
-            </div>-->
-
         </div>
     </section>
-
-    <!-- test -->
-    <!-- <script>
-        const donutchart = document.querySelector("#wordcloud")
-        // console.log(donutchart)
-
-
-        var tmptmp = [1, 2, 3, 4, 5]
-        document.addEventListener("DOMContentLoaded", () => {
-            new ApexCharts(document.querySelector("#wordcloud"), {
-                series: tmptmp,
-                chart: {
-                    id: 'mychart',
-                    height: 350,
-                    type: 'pie',
-                    toolbar: {
-                        show: true
-                    }
-                },
-                labels: [1, 2, 3, 4, 5,]
-            }).render()
-
-        });
-    </script> -->
 
 </main><!-- End #main -->
 {% endblock %}

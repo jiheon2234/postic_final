@@ -6,6 +6,25 @@
 */
 
 /*--------------------------------------------------------------
+# 한글 폰트 
+# 바꾸는 방법 : font-family에 이름을 바꾸면 폰트가 적용됨
+출처 : https://noonnu.cc/font_page/694
+--------------------------------------------------------------*/
+@font-face {
+  font-family: "SUIT-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 :root {
@@ -13,7 +32,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "SUIT-Medium";
   background: #f6f9ff;
   color: #444444;
 }
@@ -34,7 +53,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: "SUIT-Medium";
 }
 
 /*--------------------------------------------------------------
@@ -44,6 +63,7 @@ h6 {
   margin-top: 60px;
   padding: 20px 30px;
   transition: all 0.3s;
+  font-family: "SUIT-Medium";
 }
 
 @media (max-width: 1199px) {
@@ -281,7 +301,7 @@ h6 {
   font-size: 18px;
   font-weight: 500;
   color: #012970;
-  font-family: "Poppins", sans-serif;
+  font-family: "Pretendard-Regular";
 }
 
 .card-title span {
@@ -301,7 +321,7 @@ h6 {
 /* Alerts */
 .alert-heading {
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: "Pretendard-Regular";
   font-size: 20px;
 }
 
@@ -350,7 +370,7 @@ h6 {
 /* Breadcrumbs */
 .breadcrumb {
   font-size: 14px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Pretendard-Regular";
   color: #899bbd;
   font-weight: 600;
 }
@@ -417,7 +437,7 @@ h6 {
   font-size: 26px;
   font-weight: 700;
   color: #012970;
-  font-family: "Nunito", sans-serif;
+  font-family: "Pretendard-Regular";
 }
 
 .header {
@@ -1027,7 +1047,7 @@ h6 {
 }
 
 .iconslist .label {
-  font-family: var(--bs-font-monospace);
+  font-family: "Pretendard-Regular";
   display: inline-block;
   width: 100%;
   overflow: hidden;
@@ -1286,3 +1306,5 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+
