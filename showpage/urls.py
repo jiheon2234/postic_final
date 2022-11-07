@@ -3,15 +3,14 @@ from .views import *
 
 app_name = "showpage"
 urlpatterns = [
-    path("", showmain, name="main"),
-    path("showstat_occ", showstat_occ, name="showstat_occ"),
-    path("showstat", showstat, name="showstat"),
-    path("regionjson", regionjson),
-    path("showmap", showmap, name="showmap"),
-    path("showmapjson", showmapjson),
-    path("showdetail/<int:ann_no>", showdetail),
-    path("showkeyword", showkeyword, name="showkeyword"),
-    path("showkeywordjson", showkeywordjson),  # 지역별 json
-    path("showkeywordoccjson", showkeywordoccjson),  # 직종별 json
-    path("showkeyword_occ", showkeyword_occ, name="showkeyword_occ"),
+    path("", showmain, name="main"),  # 메인
+    path("showstat_occ", showstat_occ, name="showstat_occ"),  # 직종별 통계
+    path("showstat", showstat, name="showstat"),  # 지역별 통계
+    path("regionjson", regionjson),  # json
+    path("showmap", showmap, name="showmap"),  # 맞춤형
+    path("showmapjson", showmapjson),  # 맞춤형 페이지 json
+    path("showdetail/<int:ann_no>", showdetail),  # 공고 상세 페이지
+    path("showkeyword", showkeyword, name="showkeyword"),  # 검색형 워드클라우드
+    path("showkeywordjson", showkeywordjson),  # 워드클라우드 json
+    path("showkeyword_occ", showkeyword_occ, name="showkeyword_occ"),  # 선택형 워드클라우드
 ]

@@ -12,7 +12,7 @@ function findheader() {
     return 0;
   }
   const active = document.getElementById(pwd);
-  console.log(active);
+  // console.log(active);
   active.classList.add("active");
 }
 document.addEventListener("DOMContentLoaded", findheader);

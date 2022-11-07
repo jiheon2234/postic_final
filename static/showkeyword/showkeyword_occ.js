@@ -11,9 +11,10 @@ function f(event) {
 
 function find_occ() {
   const occ_list = document.getElementsByName("occ");
+  occ = 0;
   occ_list.forEach((n) => {
     if (n.checked) {
-      occ = n.value;
+      occ |= 1 << (n.value - 1);
       return 1;
       // break
     }
@@ -23,18 +24,19 @@ function find_occ() {
 
 function draw_cloud() {
   find_occ();
+
   if (region == 0 || occ == 0) {
     alert("선택되지 않음");
     return;
   }
   container.innerHTML = "";
-  url = `showkeywordjson?&kind=both&occ_num=${occ}&sido=${region}`;
+  url = `showkeywordjson?&kind=both&occ_num=${occ}&momid=${region}`;
   loading_layer.style.display = "block";
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       const words = data.data;
-      console.log(words);
+      // console.log(words);
       const chart = anychart.tagCloud(words);
       chart.container("container");
       chart.draw();
