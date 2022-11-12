@@ -36,10 +36,15 @@ if __name__ == "__main__":
         cursorclass=pymysql.cursors.DictCursor,
     )
     cur = con.cursor()
+
+    tag = "모델"
     cur.execute(
-        """
-        SELECT title FROM announce;
+        f"""
+        SELECT title FROM announce
+        where title like '%{tag}%';
+
     """
     )
     res = cur.fetchall()
     print(getcommon(res, n=100, debug=True))
+    con.close()

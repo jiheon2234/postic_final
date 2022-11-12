@@ -20,9 +20,10 @@ function f(event) {
     }
     url = `showkeywordjson?&kind=sido&momid=${sido_num}`;
   } else {
-    const occ_num = occ_input.value;
+    const occ = occ_input.value;
+
     if (0 < occ_input < 14) {
-      url = `showkeywordjson?&kind=occ&occ_num=${occ_num}`;
+      url = `showkeywordjson?&kind=occ&occ=${occ}`;
     } else {
       alert("something wrong ");
       return;
@@ -127,7 +128,7 @@ function make_div(rank, text, value) {
   //  div.style.border-left = "7px solid #f9bf74";
   //  div.style.color= "#f9bf74";
   //}
-  
+
   //if (rank >= 10) {
   //  div.style.backgroundColor = "Gainsboro";
   //  div.style.color = "#f9bf74";

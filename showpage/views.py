@@ -4,6 +4,7 @@ from collections import defaultdict
 from django.http import JsonResponse
 from haversine import haversine
 from .getcommon import getcommon
+from django.db import connection
 import pandas as pd
 
 
@@ -62,6 +63,31 @@ def regionjson(request):  # showstat json 주는 페이지
 
 
 def showstat(request):  # 통계정보페이지
+    # cur = connection.cursor()
+    # worktype_list, paytype_list, pay_avg_list = [], [], []
+    # sql = """select  count(*) as cnt,
+    # round(avg(paymoney)/
+    # case when paytype_no=3 then 174.4
+    # when paytype_no=4 then 2092.8
+    # else 1
+    # end ,0) as avg
+    # from announce
+    # group by paytype_no
+    # having paytype_no in (1,3,4)
+    # order by paytype_no; """
+    # cur.execute(sql)
+    # for a, b in cur.fetchall():
+    #     paytype_list.append(a)
+    #     pay_avg_list.append(b)
+    #     # pay_avg_list.append(int(b))
+    # sql = """
+    # select  count(*) as cnt from announce
+    # group by worktype_no
+    # order by worktype_no;
+    # """
+    # cur.execute(sql)
+    # worktype_list = [x[0] for x in cur.fetchall()]
+
     ann = Announce.objects.all()
     worktype_list = [10339, 3679, 2385, 6617, 890, 11418, 6084, 1739, 6831, 2965, 2619, 5872, 344]
     paytype_list = [14875, 28892, 17502]  # 시급,월급,연봉
@@ -161,15 +187,15 @@ def showkeyword(request):  # 키워드직접검색하는 페이지 (워드클라
 
 def showkeywordjson(request):  # 키워드직접검색, 선택으로 검색 json주는페이지
     kind = request.GET.get("kind", "sido")
-    print(kind)
     if kind == "sido":
         momid = request.GET.get("momid", 25)
         ann = Announce.objects.filter(sido_no__momid=momid)
     elif kind == "occ":
-        occ = int(request.GET.get("occ", 1))
-        ann = Announce.objects.filter(worktype_no=occ)
+        occ = request.GET.get("occ", 1)
+        print(occ)
+        ann = Announce.objects.filter(title__contains=occ)
+        print(ann[0].title)
     else:  # both
-
         momid = request.GET.get("momid", 25)
         occ = int(request.GET.get("occ_num", 1))
         occ_list = [x + 1 for x in range(13) if occ & 1 << x]
