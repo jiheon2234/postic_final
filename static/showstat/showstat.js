@@ -61,8 +61,6 @@ function f(event) {
 
           detail_sido.appendChild(btn);
         }
-      } else {
-        console.log(child_sido);
       }
 
       chart0.updateSeries([
