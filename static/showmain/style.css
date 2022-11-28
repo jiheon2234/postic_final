@@ -88,6 +88,23 @@ animation: move-wave 3s;
 }
 
 /*--------------------------------------------------------------
+# 총 채용건수
+--------------------------------------------------------------*/
+#number {
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: helvetica;
+  text-align: center;
+  color: black;
+  margin-top: 10px;
+}
+.number-text{
+  margin-top: 50px;
+  font-size: 25px;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
 # 최근 인기 구직 트랜드 키워드 
 --------------------------------------------------------------*/
 .animate-text-title{

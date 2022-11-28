@@ -2,7 +2,7 @@
 {% load humanize %}
 {% block title %} {{ ann.pk }} {% endblock %}
 {% block content %}
-<div id="main" class="container">
+<div id="main" class="main">
     <!-- 맞춤형 채용정보 디테일 페이지 -->
     <div class="pagetitle">
         <h1>채용 공고 세부정보</h1>
@@ -23,6 +23,7 @@
                     <h5 class="card-title" style="font-size:1.75em; padding:20px 0 0 0;">&nbsp;&nbsp;&nbsp;▪
                         {{ ann.title }}</h5>
                     <span class="job-category">CATEGORY - {{ann.worktype_no.name}}</span>
+                    
                     <div class="card-body">
                         <!-- 채용공고 상세 내용-->
                         <div class="job-detail-tb">
